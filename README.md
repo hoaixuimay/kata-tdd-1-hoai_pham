@@ -1,2 +1,7 @@
-# kata-tdd-1-hoai_pham
 kata http://osherove.com/tdd-kata-1
+========
+1. Run unit tests:
+--------
+    cd tests
+    phpunit StringCalculatorTest.php
+If command phpunit is not available on your machine. Follow link https://phpunit.de/manual/current/en/installation.html to install
