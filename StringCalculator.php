@@ -20,16 +20,20 @@ class StringCalculator {
         // other cases
         $separator = '[\n,]';
         if(preg_match("/^\/\//", $numbers)){ // defined delimiter
-            if(preg_match("/^\/\/\[(?P<delimiter>.*)\]/", $numbers, $matches)){
-                $delimiter = $matches['delimiter'];
-                $numbers = str_replace("//[$delimiter]\n", "", $numbers);
-                $numbers = str_replace("$delimiter", ",", $numbers);
+            if(preg_match("/^\/\/(\[.+\])+\n(.+)/", $numbers, $matches)){
+                // get delimiters
+                $delimiters = preg_split("/[\[\]]/", $matches[1]); 
+                // remove empty values
+                $delimiters = array_filter($delimiters); 
+                // replace delimiters by "," to avoid special characters int pattern matching
+                $numbers = str_replace($delimiters, ",", $matches[2]);
             } else {
                 $delimiter = substr($numbers, 2,1);
                 $numbers = substr($numbers, 4);
                 $numbers = str_replace("$delimiter", ",", $numbers);
             }
         }
+        
         $numberArr = preg_split("/$separator/",$numbers);
         $invalidNumbers = $this->getInvalidNumbers($numberArr);
         if(!empty($invalidNumbers)){
