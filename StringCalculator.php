@@ -13,9 +13,13 @@ class StringCalculator {
             return 0;
         }
         // other cases
-        $numberArr = split(",",$numbers);
+        $numberArr = preg_split("/[\n,]/",$numbers);
         $result = 0;
         foreach($numberArr as $number){
+            // check numeric string
+            if(!is_numeric($number)){
+                throw new InvalidArgumentException("Invalid number: $number", 100);
+            }
             $result += $number;
         }
         return $result;
