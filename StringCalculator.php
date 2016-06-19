@@ -7,6 +7,11 @@
  */
 class StringCalculator {
     
+    /*
+     * Maximum number allow
+     */
+    const MAXIMUM_NUMBER = 1000;
+    
     public function Add($numbers){
         // empty case
         if(empty($numbers)){
@@ -26,6 +31,9 @@ class StringCalculator {
         }
         $result = 0;
         foreach($numberArr as $number){
+            if($number > self::MAXIMUM_NUMBER){
+                continue;
+            }
             $result += $number;
         }
         return $result;

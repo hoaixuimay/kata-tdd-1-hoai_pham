@@ -79,4 +79,11 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
         );
         $this->object->Add("//;\n-1;-2;5");
     }
+    
+    /**
+     * 6. Numbers bigger than 1000 should be ignored
+     */
+    public function testIgnoreBiggerAllowedNumber(){
+        $this->assertEquals(902, $this->object->Add("//,\n10001,2,900"));
+    }
 }
