@@ -20,15 +20,25 @@ class StringCalculator {
             $numbers = substr($numbers, 4);
         }
         $numberArr = preg_split("/[$separator]/",$numbers);
+        $invalidNumbers = $this->getInvalidNumbers($numberArr);
+        if(!empty($invalidNumbers)){
+            throw new InvalidArgumentException("Negatives not allowed. Invalid values: " . implode(",",$invalidNumbers), 100);
+        }
         $result = 0;
         foreach($numberArr as $number){
-            // check numeric string
-            if(!is_numeric($number)){
-                throw new InvalidArgumentException("Invalid number: $number", 100);
-            }
             $result += $number;
         }
         return $result;
+    }
+    
+    private function getInvalidNumbers($numbers){
+        $invalidNumbers = array();
+        foreach($numbers as $number){
+            if(!is_numeric($number) || $number < 0){
+                array_push($invalidNumbers,$number);
+            }
+        }
+        return $invalidNumbers;
     }
 }
 

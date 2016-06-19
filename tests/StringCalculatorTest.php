@@ -69,4 +69,14 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     public function testDifferentDelimiters(){
         $this->assertEquals(3, $this->object->Add("//;\n1;2"));
     }
+    
+    /**
+     * 5. Calling Add with a negative number will throw an exception “negatives not allowed”
+     */
+    public function testNegativeNumbers(){
+        $this->setExpectedException(
+          'InvalidArgumentException', 'Negatives not allowed. Invalid values: -1,-2', 100
+        );
+        $this->object->Add("//;\n-1;-2;5");
+    }
 }
