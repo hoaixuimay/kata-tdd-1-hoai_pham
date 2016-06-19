@@ -63,4 +63,10 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
         $this->object->Add("1,\n");
     }
     
+    /**
+     * 4. Test to support different delimiters
+     */
+    public function testDifferentDelimiters(){
+        $this->assertEquals(3, $this->object->Add("//;\n1;2"));
+    }
 }

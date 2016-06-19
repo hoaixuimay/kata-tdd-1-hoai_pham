@@ -13,7 +13,13 @@ class StringCalculator {
             return 0;
         }
         // other cases
-        $numberArr = preg_split("/[\n,]/",$numbers);
+        $definedSeparator = preg_match("/^\/\//", $numbers);
+        $separator = '\n,';
+        if($definedSeparator){
+            $separator .= substr($numbers, 2,1);
+            $numbers = substr($numbers, 4);
+        }
+        $numberArr = preg_split("/[$separator]/",$numbers);
         $result = 0;
         foreach($numberArr as $number){
             // check numeric string
