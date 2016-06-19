@@ -100,4 +100,11 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     public function testMultipleDelimiters(){
         $this->assertEquals(6, $this->object->Add("//[*][%]\n1*2%3"));
     }
+    
+    /**
+     * 9. Allow multiple delimiters with length longer than one char
+     */
+    public function testLongLegthMultipleDelimiters(){
+        $this->assertEquals(6, $this->object->Add("//[*;@][%;@]\n1*;@2%;@3"));
+    }
 }
