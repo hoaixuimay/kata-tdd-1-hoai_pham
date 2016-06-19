@@ -29,6 +29,9 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
         
     }
 
+    /**
+     * 1. Test to create a simple String calculator with a method int Add
+     */
     public function testIsEmpty(){
         $this->assertEquals(0,$this->object->Add(""));
     }
@@ -39,7 +42,25 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(3,$this->object->Add("1,2"));
     }
     
+    /**
+     * 2. Test to allow the Add method to handle an unknown amount of numbers
+     */
     public function testUnknownAmountOfNumbers(){
         $this->assertEquals(15, $this->object->Add("1,2,5,4,3"));
     }
+    
+    /**
+     * 3. Test to allow the Add method to handle new lines between numbers (instead of commas)
+     */
+    public function testExistingNewlines(){
+        $this->assertEquals(6, $this->object->Add("1\n2,3"));
+    }
+    /**
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionCode 100
+     */
+    public function testInvalidExistingNewlines(){
+        $this->object->Add("1,\n");
+    }
+    
 }
