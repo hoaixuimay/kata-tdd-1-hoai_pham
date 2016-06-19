@@ -84,6 +84,13 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
      * 6. Numbers bigger than 1000 should be ignored
      */
     public function testIgnoreBiggerAllowedNumber(){
-        $this->assertEquals(902, $this->object->Add("//,\n10001,2,900"));
+        $this->assertEquals(902, $this->object->Add("//*\n10001*2*900"));
+    }
+    
+    /**
+     * 7. Delimiters can be of any length
+     */
+    public function testLongLengthDelimiter(){
+        $this->assertEquals(6, $this->object->Add("//[***]\n1***2***3"));
     }
 }

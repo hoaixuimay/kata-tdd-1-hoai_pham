@@ -18,13 +18,19 @@ class StringCalculator {
             return 0;
         }
         // other cases
-        $definedSeparator = preg_match("/^\/\//", $numbers);
-        $separator = '\n,';
-        if($definedSeparator){
-            $separator .= substr($numbers, 2,1);
-            $numbers = substr($numbers, 4);
+        $separator = '[\n,]';
+        if(preg_match("/^\/\//", $numbers)){ // defined delimiter
+            if(preg_match("/^\/\/\[(?P<delimiter>.*)\]/", $numbers, $matches)){
+                $delimiter = $matches['delimiter'];
+                $numbers = str_replace("//[$delimiter]\n", "", $numbers);
+                $numbers = str_replace("$delimiter", ",", $numbers);
+            } else {
+                $delimiter = substr($numbers, 2,1);
+                $numbers = substr($numbers, 4);
+                $numbers = str_replace("$delimiter", ",", $numbers);
+            }
         }
-        $numberArr = preg_split("/[$separator]/",$numbers);
+        $numberArr = preg_split("/$separator/",$numbers);
         $invalidNumbers = $this->getInvalidNumbers($numberArr);
         if(!empty($invalidNumbers)){
             throw new InvalidArgumentException("Negatives not allowed. Invalid values: " . implode(",",$invalidNumbers), 100);
