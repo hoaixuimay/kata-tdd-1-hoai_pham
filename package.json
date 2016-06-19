@@ -1,0 +1,35 @@
+{
+  "name": "kata-tdd-1-hoai_pham",
+  "version": "1.0.0",
+  "description": "Kata tdd test",
+  "main": "karma.conf.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-qunit": "^1.2.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoaixuimay/kata-tdd-1-hoai_pham.git"
+  },
+  "keywords": [
+    "kata-tdd-1-hoai_pham"
+  ],
+  "author": "phoai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoaixuimay/kata-tdd-1-hoai_pham/issues"
+  },
+  "homepage": "https://github.com/hoaixuimay/kata-tdd-1-hoai_pham#readme"
+}
