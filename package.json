@@ -8,11 +8,8 @@
   },
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-qunit": "^1.2.0",
-    "grunt-contrib-uglify": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-cli": "^1.2.0",
+    "grunt-phpunit": "^0.3.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
