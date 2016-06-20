@@ -1,7 +1,15 @@
 kata http://osherove.com/tdd-kata-1
 ========
-1. Run unit tests:
+
+1. Prepare environment:
 --------
-    cd tests
-    phpunit StringCalculatorTest.php
-If command phpunit is not available on your machine, follow link https://phpunit.de/manual/current/en/installation.html to install.
+Run composer to pull out some requirements:
+    composer install
+
+2. Get all dependent packages in package.json
+--------
+    npm install
+
+3. Run grunt tasks
+--------
+    node_modules/grunt-cli/bin/grunt
