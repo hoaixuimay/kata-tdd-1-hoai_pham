@@ -1,7 +1,7 @@
 This is string calculator page
-<form action="calculator" method="post">
+<div ng-controller="StringCalculatorCtrl">
     <label>Input string</label>
-    <textarea rows="2" cols="50" name="inputString"><?php echo !empty($this->inputString)?$this->inputString:""?></textarea>
-    <label></label><input type="submit" value="Calculate" /> <br />
-    <label>Result:</label><label><?php echo $this->result;?></label>
-</form>
+    <textarea rows="2" cols="50" id="inputString" name="inputString" ng-model="inputString"><?php echo !empty($this->inputString)?$this->inputString:""?></textarea>
+    <label></label><input type="button" id="submitButton" value="Calculate" ng-click="calculate()"/> <br />
+    <label for="resultCalculator">Result:</label><input id="resultCalculator" readonly="true" ng-model="outputString"/>
+</div>
