@@ -2,17 +2,22 @@
   "name": "kata-tdd-1-hoai_pham",
   "version": "1.0.0",
   "description": "Kata tdd test",
-  "main": "karma.conf.js",
+  "main": "Kata tdd test",
   "directories": {
     "test": "tests"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
-    "grunt-phpunit": "^0.3.6"
+    "grunt-karma": "^2.0.0",
+    "grunt-phpunit": "^0.3.6",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.0.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
